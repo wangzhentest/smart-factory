@@ -1,0 +1,150 @@
+2024-04-12T09:07:16.649+08:00  INFO 80072 --- [main] com.example.backend.BackendApplication   : Starting BackendApplication using Java 17 with PID 80072 (D:\backend\target\classes started by Diego in D:\backend)
+2024-04-12T09:07:16.655+08:00  INFO 80072 --- [main] com.example.backend.BackendApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-04-12T09:07:17.543+08:00  INFO 80072 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-04-12T09:07:17.552+08:00  INFO 80072 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-04-12T09:07:17.552+08:00  INFO 80072 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2024-04-12T09:07:17.643+08:00  INFO 80072 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-04-12T09:07:17.644+08:00  INFO 80072 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 955 ms
+2024-04-12T09:07:18.070+08:00  INFO 80072 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-04-12T09:07:18.077+08:00  INFO 80072 --- [main] com.example.backend.BackendApplication   : Started BackendApplication in 1.81 seconds (process running for 2.412)
+2024-04-12T09:10:39.321+08:00  INFO 80072 --- [http-nio-8081-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-12T09:10:39.322+08:00  INFO 80072 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-04-12T09:10:39.323+08:00  INFO 80072 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-04-12T09:10:39.370+08:00  INFO 80072 --- [http-nio-8081-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-04-12T09:10:39.750+08:00  INFO 80072 --- [http-nio-8081-exec-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2ba749f1
+2024-04-12T09:10:39.753+08:00  INFO 80072 --- [http-nio-8081-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-04-12T10:40:02.943+08:00  INFO 80072 --- [http-nio-8081-exec-3] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: Invalid character found in the request target [/getTodayAttendance?date=(date)%20=%3E%20{%20%20const%20formatted%20=%20new%20Date(date);%20%20const%20year%20=%20formatted.getFullYear();%20%20const%20month%20=%20(formatted.getMonth()%20+%201).toString().padStart(2,%20%270%27);%20%20const%20day%20=%20formatted.getDate().toString().padStart(2,%20%270%27);%20%20return%20`${year}-${month}-${day}`;} ]. The valid characters are defined in RFC 7230 and RFC 3986
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:482) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:264) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+
+2024-04-12T10:40:04.951+08:00  INFO 80072 --- [http-nio-8081-exec-7] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: Invalid character found in the request target [/getTodayAttendance?date=(date)%20=%3E%20{%20%20const%20formatted%20=%20new%20Date(date);%20%20const%20year%20=%20formatted.getFullYear();%20%20const%20month%20=%20(formatted.getMonth()%20+%201).toString().padStart(2,%20%270%27);%20%20const%20day%20=%20formatted.getDate().toString().padStart(2,%20%270%27);%20%20return%20`${year}-${month}-${day}`;} ]. The valid characters are defined in RFC 7230 and RFC 3986
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:482) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:264) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+
+2024-04-12T11:38:48.197+08:00  WARN 80072 --- [http-nio-8081-exec-9] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@6f25d364 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2024-04-12T11:50:08.251+08:00  INFO 80072 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-04-12T11:50:08.255+08:00  INFO 80072 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-04-12T12:46:18.364+08:00  INFO 20548 --- [main] com.example.backend.BackendApplication   : Starting BackendApplication using Java 17 with PID 20548 (D:\backend\target\classes started by Diego in D:\backend)
+2024-04-12T12:46:18.367+08:00  INFO 20548 --- [main] com.example.backend.BackendApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-04-12T12:46:19.195+08:00  INFO 20548 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-04-12T12:46:19.209+08:00  INFO 20548 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-04-12T12:46:19.210+08:00  INFO 20548 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2024-04-12T12:46:19.292+08:00  INFO 20548 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-04-12T12:46:19.293+08:00  INFO 20548 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 893 ms
+2024-04-12T12:46:19.709+08:00  INFO 20548 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-04-12T12:46:19.716+08:00  INFO 20548 --- [main] com.example.backend.BackendApplication   : Started BackendApplication in 1.731 seconds (process running for 2.288)
+2024-04-12T12:46:47.778+08:00  INFO 20548 --- [http-nio-8081-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-12T12:46:47.779+08:00  INFO 20548 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-04-12T12:46:47.780+08:00  INFO 20548 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-04-12T12:46:47.824+08:00  INFO 20548 --- [http-nio-8081-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-04-12T12:46:48.174+08:00  INFO 20548 --- [http-nio-8081-exec-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7830559a
+2024-04-12T12:46:48.175+08:00  INFO 20548 --- [http-nio-8081-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-04-12T12:49:43.429+08:00  INFO 20548 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-04-12T12:49:43.438+08:00  INFO 20548 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-04-12T12:49:46.719+08:00  INFO 64308 --- [main] com.example.backend.BackendApplication   : Starting BackendApplication using Java 17 with PID 64308 (D:\backend\target\classes started by Diego in D:\backend)
+2024-04-12T12:49:46.721+08:00  INFO 64308 --- [main] com.example.backend.BackendApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-04-12T12:49:47.443+08:00  INFO 64308 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-04-12T12:49:47.449+08:00  INFO 64308 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-04-12T12:49:47.451+08:00  INFO 64308 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2024-04-12T12:49:47.531+08:00  INFO 64308 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-04-12T12:49:47.531+08:00  INFO 64308 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 780 ms
+2024-04-12T12:49:47.902+08:00  INFO 64308 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-04-12T12:49:47.908+08:00  INFO 64308 --- [main] com.example.backend.BackendApplication   : Started BackendApplication in 1.532 seconds (process running for 2.013)
+2024-04-12T12:50:15.455+08:00  INFO 64308 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-12T12:50:15.455+08:00  INFO 64308 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-04-12T12:50:15.455+08:00  INFO 64308 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-04-12T12:50:15.506+08:00  INFO 64308 --- [http-nio-8081-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-04-12T12:50:15.794+08:00  INFO 64308 --- [http-nio-8081-exec-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@43a3c51
+2024-04-12T12:50:15.795+08:00  INFO 64308 --- [http-nio-8081-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-04-12T12:56:06.564+08:00  INFO 64308 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-04-12T12:56:06.570+08:00  INFO 64308 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-04-12T12:56:10.040+08:00  INFO 2976 --- [main] com.example.backend.BackendApplication   : Starting BackendApplication using Java 17 with PID 2976 (D:\backend\target\classes started by Diego in D:\backend)
+2024-04-12T12:56:10.043+08:00  INFO 2976 --- [main] com.example.backend.BackendApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-04-12T12:56:10.782+08:00  INFO 2976 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-04-12T12:56:10.791+08:00  INFO 2976 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-04-12T12:56:10.791+08:00  INFO 2976 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2024-04-12T12:56:10.879+08:00  INFO 2976 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-04-12T12:56:10.879+08:00  INFO 2976 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 806 ms
+2024-04-12T12:56:11.260+08:00  INFO 2976 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-04-12T12:56:11.269+08:00  INFO 2976 --- [main] com.example.backend.BackendApplication   : Started BackendApplication in 1.58 seconds (process running for 2.062)
+2024-04-12T12:56:11.517+08:00  INFO 2976 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-12T12:56:11.517+08:00  INFO 2976 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-04-12T12:56:11.518+08:00  INFO 2976 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-04-12T12:56:11.559+08:00  INFO 2976 --- [http-nio-8081-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-04-12T12:56:11.879+08:00  INFO 2976 --- [http-nio-8081-exec-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3e185f2f
+2024-04-12T12:56:11.881+08:00  INFO 2976 --- [http-nio-8081-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-04-12T12:56:18.046+08:00  INFO 2976 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-04-12T12:56:18.052+08:00  INFO 2976 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-04-12T12:56:23.598+08:00  INFO 75976 --- [main] com.example.backend.BackendApplication   : Starting BackendApplication using Java 17 with PID 75976 (D:\backend\target\classes started by Diego in D:\backend)
+2024-04-12T12:56:23.601+08:00  INFO 75976 --- [main] com.example.backend.BackendApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-04-12T12:56:24.410+08:00  INFO 75976 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-04-12T12:56:24.418+08:00  INFO 75976 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-04-12T12:56:24.418+08:00  INFO 75976 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2024-04-12T12:56:24.496+08:00  INFO 75976 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-04-12T12:56:24.497+08:00  INFO 75976 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 859 ms
+2024-04-12T12:56:24.914+08:00  INFO 75976 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-04-12T12:56:24.921+08:00  INFO 75976 --- [main] com.example.backend.BackendApplication   : Started BackendApplication in 1.694 seconds (process running for 2.246)
+2024-04-12T12:56:25.076+08:00  INFO 75976 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-12T12:56:25.076+08:00  INFO 75976 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-04-12T12:56:25.077+08:00  INFO 75976 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-04-12T12:56:25.120+08:00  INFO 75976 --- [http-nio-8081-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-04-12T12:56:25.383+08:00  INFO 75976 --- [http-nio-8081-exec-2] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3520174f
+2024-04-12T12:56:25.385+08:00  INFO 75976 --- [http-nio-8081-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-04-12T13:17:59.942+08:00  INFO 75976 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-04-12T13:17:59.954+08:00  INFO 75976 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-04-12T13:18:02.927+08:00  INFO 49056 --- [main] com.example.backend.BackendApplication   : Starting BackendApplication using Java 17 with PID 49056 (D:\backend\target\classes started by Diego in D:\backend)
+2024-04-12T13:18:02.929+08:00  INFO 49056 --- [main] com.example.backend.BackendApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-04-12T13:18:03.704+08:00  INFO 49056 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-04-12T13:18:03.717+08:00  INFO 49056 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-04-12T13:18:03.717+08:00  INFO 49056 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2024-04-12T13:18:03.803+08:00  INFO 49056 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-04-12T13:18:03.804+08:00  INFO 49056 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 842 ms
+2024-04-12T13:18:04.228+08:00  INFO 49056 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-04-12T13:18:04.235+08:00  INFO 49056 --- [main] com.example.backend.BackendApplication   : Started BackendApplication in 1.702 seconds (process running for 2.272)
+2024-04-12T13:18:38.221+08:00  INFO 49056 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-12T13:18:38.222+08:00  INFO 49056 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-04-12T13:18:38.222+08:00  INFO 49056 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-04-12T13:18:38.269+08:00  INFO 49056 --- [http-nio-8081-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-04-12T13:18:38.557+08:00  INFO 49056 --- [http-nio-8081-exec-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@89d5bc0
+2024-04-12T13:18:38.559+08:00  INFO 49056 --- [http-nio-8081-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-04-12T13:43:33.567+08:00  INFO 49056 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-04-12T13:43:33.573+08:00  INFO 49056 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-04-12T13:43:36.650+08:00  INFO 81000 --- [main] com.example.backend.BackendApplication   : Starting BackendApplication using Java 17 with PID 81000 (D:\backend\target\classes started by Diego in D:\backend)
+2024-04-12T13:43:36.652+08:00  INFO 81000 --- [main] com.example.backend.BackendApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-04-12T13:43:37.376+08:00  INFO 81000 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-04-12T13:43:37.384+08:00  INFO 81000 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-04-12T13:43:37.384+08:00  INFO 81000 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2024-04-12T13:43:37.467+08:00  INFO 81000 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-04-12T13:43:37.467+08:00  INFO 81000 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 783 ms
+2024-04-12T13:43:37.835+08:00  INFO 81000 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-04-12T13:43:37.840+08:00  INFO 81000 --- [main] com.example.backend.BackendApplication   : Started BackendApplication in 1.536 seconds (process running for 2.017)
+2024-04-12T13:43:48.666+08:00  INFO 81000 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-12T13:43:48.667+08:00  INFO 81000 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-04-12T13:43:48.667+08:00  INFO 81000 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-04-12T13:43:48.720+08:00  INFO 81000 --- [http-nio-8081-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-04-12T13:43:48.999+08:00  INFO 81000 --- [http-nio-8081-exec-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@72d1a6f7
+2024-04-12T13:43:49.001+08:00  INFO 81000 --- [http-nio-8081-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-04-12T14:02:50.648+08:00  INFO 81000 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-04-12T14:02:50.660+08:00  INFO 81000 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
