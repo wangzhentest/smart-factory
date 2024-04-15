@@ -115,11 +115,17 @@ import {onMounted, reactive, ref, onBeforeUnmount} from 'vue';
 import {useRouter} from 'vue-router';
 import apiService from "../services/apiService";
 import {ElMessage, ElNotification, ElMessageBox} from 'element-plus'
+import {useMessageStore} from "../stores/message";
+import {useIncidentStore} from "../stores/incident";
+
+const MessageStore = useMessageStore();
+const IncidentStore = useIncidentStore();
 let untreated_incidents_length = ref(null);
 let isClose = ref(false)
 const router = useRouter();
 const dialogFormVisible = ref(false)
 const centerDialogVisible = ref(false)
+const not_reminded_messages = ref(null)
 const form = reactive({
   reason: '',
   type: '',
@@ -217,7 +223,17 @@ const get_untreated_incidents = async () => {
   untreated_incidents_length.value = untreated_incidents.length
 };
 
-const not_reminded_messages = ref(null)
+const get_not_reminded_messages = async () => {
+  stopTimer()
+  not_reminded_messages.value = await apiService.get_not_reminded_messages();
+  if (not_reminded_messages.value.length > 0){
+    for (let i = 0; i < not_reminded_messages.value.length; i++) {
+      await remind_message(not_reminded_messages.value[i].id)
+      setTimeout(showMessage(not_reminded_messages.value[i]), 1000);
+    }
+  }
+  startTimer()
+};
 
 function showMessage(newMessage){
   const message = `监控:${newMessage.camera_id}发出警告${newMessage.occur_date}时,在${newMessage.occur_place}发生${newMessage.alarm_reason}`
@@ -233,19 +249,6 @@ function showMessage(newMessage){
 async function remind_message(id) {
   await apiService.remind_message(id);
 }
-
-const get_not_reminded_messages = async () => {
-  stopTimer()
-  not_reminded_messages.value = await apiService.get_not_reminded_messages();
-  if (not_reminded_messages.value.length > 0){
-    for (let i = 0; i < not_reminded_messages.value.length; i++) {
-      await remind_message(not_reminded_messages.value[i].id)
-      setTimeout(showMessage(not_reminded_messages.value[i]), 1000);
-    }
-  }
-  startTimer()
-};
-
 
 </script>
 <style>

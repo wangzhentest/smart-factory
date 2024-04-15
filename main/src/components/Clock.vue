@@ -27,17 +27,14 @@ export default {
       day.value = date.toLocaleString('en-US', options3);
     };
 
-    // 在组件挂载时更新日期
     onMounted(() => {
       updateFormattedDate();
     });
 
-    // 在组件卸载时停止定时器
     onUnmounted(() => {
       clearInterval(timerId);
     });
 
-    // 使用定时器每秒更新时间
     const timerId = setInterval(() => {
       currentTime.value = new Date().toLocaleTimeString('en-US', {
         hour12: false,
@@ -47,7 +44,6 @@ export default {
       });
     }, 1000);
 
-    // 监听 formattedDate 的变化，并在变化时更新日期
     watch(formattedDate, () => {
       updateFormattedDate();
     });

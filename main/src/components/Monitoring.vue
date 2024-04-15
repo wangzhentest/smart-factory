@@ -51,6 +51,7 @@ onMounted(() => {
   });
   getCameras("车间A")
 });
+
 function switchLocation(direction) {
   const currentIndex = locations.indexOf(this.locationName);
   let newIndex = direction === 'left' ? currentIndex - 1 : currentIndex + 1;

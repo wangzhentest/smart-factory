@@ -2,7 +2,7 @@
   <div class="main">
     <div class="descriptionsArea">
       <div style="width: 100%;height: 3%"></div>
-      <el-descriptions size="large" border style="margin-left:1%;margin-right:1%;width: 98%;margin-bottom: 1%" v-for="(item,index) in tableData" :key="index">
+      <el-descriptions size="large" border style="margin-left:1%;margin-right:1%;width: 98%;margin-bottom: 1%" v-for="(item,index) in EmployeeStore.employees" :key="index">
         <el-descriptions-item >
           <template #label>
             <el-icon :size="20">
@@ -64,16 +64,17 @@
 </template>
 
 <script setup>
-import apiService from "../services/apiService";
 import {onMounted, ref} from "vue";
-import {useRouter} from "vue-router";
-onMounted(() =>{
-  get_repairmen()
-})
-const tableData = ref(null);
-const get_repairmen = async () => {
-  tableData.value = await apiService.get_employees();
+import {useEmployeeStore} from "../stores/employee";
+
+const EmployeeStore = useEmployeeStore()
+const getEmployees = async () => {
+  await EmployeeStore.getEmployees();
 };
+
+onMounted(() =>{
+  getEmployees()
+})
 
 </script>
 

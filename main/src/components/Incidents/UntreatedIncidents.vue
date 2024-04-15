@@ -14,7 +14,7 @@
       <el-button style="position: absolute;right: -1%" @click="goToOther">切换</el-button>
     </div>
 
-    <el-table :data="filteredData || tableData" style="width: 100%" table-layout="auto" stripe border class="incident_table" height="92%" size="large">
+    <el-table :data="filteredData || incidentStore.UnfinishedList" style="width: 100%" table-layout="auto" stripe border class="incident_table" height="92%" size="large">
       <el-table-column label="事故id" prop="incident_id" align="center"/>
       <el-table-column label="事故类型" prop="incident_type" align="center"/>
       <el-table-column label="事故日期" prop="occur_date" align="center"/>
@@ -50,12 +50,13 @@
 
 <script setup>
 import {ref, onMounted, onBeforeUnmount, h} from 'vue';
-import apiService from "../../services/apiService";
 import {useRouter} from 'vue-router';
 import VideoArea from '../commen/VideoArea.vue'
 import Selector from '../commen/Selector.vue'
 import {ElNotification} from "element-plus";
+import {useIncidentStore} from "../../stores/incident";
 
+const incidentStore = useIncidentStore()
 const search = ref('');
 const tableData = ref(null);
 const searchType = ref(null);
@@ -65,14 +66,15 @@ const videoBoxShow = ref(false)
 const selectorShow = ref(false)
 const videoSrc = ref('null')
 const incidentId = ref(null)
-
+let timer;
 onMounted(() => {
   getIncidents();
-  startTimer()
   open1()
 });
 
-const timer = ref(null);
+onBeforeUnmount(() => {
+  clearInterval(timer);
+});
 
 const open1 = () => {
   ElNotification({
@@ -80,45 +82,29 @@ const open1 = () => {
     message: h('i', { style: 'color: teal' }, '未处理事故页面'),
     type: 'warning',
     duration:1000,
-    position:"top-right"
+    position:"top-left"
   })
 }
-
-onBeforeUnmount(() => {
-  stopTimer()
-});
-
-function startTimer() {
-  if (timer.value === null) {
-    timer.value = setInterval(() => {
-      getIncidents()
-    }, 2000);
-  }
-}
-
-function stopTimer() {
-  clearInterval(timer.value);
-  timer.value = null;
-}
-
 
 function goToOther(){
   router.push('/TreatedIncidents')
 }
 
 const getIncidents = async () => {
-  tableData.value = await apiService.get_untreated_incidents();
+  clearInterval(timer);
+  timer = setInterval(async () => {
+    await incidentStore.getUnfinishedIncident();
+  }, 1000);
 };
 
 const handleReplay = (index) => {
-  videoSrc.value = tableData.value[index].video
-  console.log(tableData.value[index].video)
+  videoSrc.value = incidentStore.UnfinishedList[index].video
   videoBoxShow.value = true
 };
 
 const handleStaffs = async (index) => {
   selectorShow.value = true
-  incidentId.value = tableData.value[index].id
+  incidentId.value = incidentStore.UnfinishedList[index].incident_id
 };
 
 const handleSearch = () => {
